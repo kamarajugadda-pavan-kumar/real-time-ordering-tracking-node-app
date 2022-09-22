@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Double Chicken Sausage",
+        "image": "Double Chicken Sausage.jpg",
+        "price": "250",
+        "size": "small"
+    },
+    {
+        "name": "Italian Chicken Feast",
+        "image": "Italian Chicken Feast.jpg",
+        "price": "500",
+        "size": "large"
+    },
+    {
+        "name": "Malai Chicken Tikka",
+        "image": "Malai Chicken Tikka.jpg",
+        "price": "350",
+        "size": "medium"
+    },
+    {
+        "name": "Margherita",
+        "image": "Margherita.jpg",
+        "price": "200",
+        "size": "small"
+    },
+    {
+        "name": "Spiced Chicken Meatballs",
+        "image": "Spiced Chicken Meatballs.jpg",
+        "price": "600",
+        "size": "large"
+    },
+    {
+        "name": "Spiced Paneer",
+        "image": "Spiced Paneer.jpg",
+        "price": "500",
+        "size": "medium"
+    }
+]
