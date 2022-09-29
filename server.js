@@ -27,7 +27,7 @@ let clientPromise = mongoose
 
 // event emitter
 const eventEmitter = new Emitter();
-app.set('eventEmitter',eventEmitter)
+app.set("eventEmitter", eventEmitter);
 
 // session config
 app.use(
@@ -71,6 +71,11 @@ app.set("view engine", "ejs");
 // import routes->web.js
 require("./routes/web")(app);
 
+// middleware to handle unknown routes
+app.use((req, res) => {
+  res.status(404).render("errors/404");
+});
+
 const server = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
@@ -86,12 +91,10 @@ io.on("connection", (socket) => {
   });
 });
 
+eventEmitter.on("orderUpdated", (data) => {
+  io.to(`order_${data.id}`).emit("orderUpdated", data);
+});
 
-eventEmitter.on('orderUpdated',(data)=>{
-  io.to(`order_${data.id}`).emit('orderUpdated',data)
-})
-
-eventEmitter.on('orderPlaced',(data)=>{
-  io.to('adminRoom').emit('orderPlaced',data)
-})
-
+eventEmitter.on("orderPlaced", (data) => {
+  io.to("adminRoom").emit("orderPlaced", data);
+});
