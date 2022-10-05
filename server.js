@@ -37,7 +37,7 @@ app.use(
     saveUninitialized: false,
     store: MongoDbStore.create({
       mongoUrl: process.env.MONGO_CONNECTION_URL,
-      dbName: "realtime-pizza",
+      dbName: "pizza",
     }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }, //24 hours time
   })
