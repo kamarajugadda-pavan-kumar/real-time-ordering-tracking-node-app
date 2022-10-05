@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "serve": "node server.js",
-    "production":"npx mix --production"
+    "production": "npx mix --production"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "pm2": "^5.2.0",
     "socket.io": "^4.5.2"
   },
   "devDependencies": {
