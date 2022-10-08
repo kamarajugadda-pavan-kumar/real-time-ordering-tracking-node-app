@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const ejs = require("ejs");
 const expressLayout = require("express-ejs-layouts");
 const path = require("path");
@@ -11,6 +10,31 @@ const flash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
 const Emitter = require("events");
+
+// swagger import
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Pizza application API",
+      version: "1.0.0",
+      description: "A simple Express Library API",
+    },
+    servers: [
+      {
+        url: "ec2-13-233-27-63.ap-south-1.compute.amazonaws.com",
+      },
+    ],
+  },
+  apis: ["./routes/*.js"],
+};
+
+const spes = swaggerJsDoc(options);
+
+// using app
+const app = express();
 
 // Database connection
 // const url =
@@ -44,6 +68,9 @@ app.use(
 );
 
 app.use(flash());
+
+// route to access the api documentation
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(spes));
 
 // passport config
 const passportInit = require("./app/config/passport");

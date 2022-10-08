@@ -29,7 +29,9 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pm2": "^5.2.0",
-    "socket.io": "^4.5.2"
+    "socket.io": "^4.5.2",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.49",
